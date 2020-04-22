@@ -9,7 +9,7 @@ data "azurerm_user_assigned_identity" "monitor" {
     resource_group_name = "globalaz_serbia_mon"
 }
 
-resource "azurerm_role_assignment" "example" {
+resource "azurerm_role_assignment" "globalaz_serbia_role" {
     scope                = azurerm_resource_group.globalaz_serbia_rg.id
     role_definition_name = "Reader"
     principal_id         = data.azurerm_user_assigned_identity.monitor.principal_id
@@ -56,7 +56,7 @@ resource "azurerm_network_security_group" "globalaz_serbia_sgs" {
     }
 }
 
-resource "azurerm_subnet_network_security_group_association" "preday" {
+resource "azurerm_subnet_network_security_group_association" "globalaz_serbia" {
     subnet_id                 = azurerm_subnet.globalaz_serbia_subnet.0.id
     network_security_group_id = azurerm_network_security_group.globalaz_serbia_sgs.id
 }

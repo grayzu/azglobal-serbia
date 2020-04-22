@@ -25,8 +25,3 @@ variable "key_vault" {
   type        = string
   description = "Name of the pre-existing key vault instance"
 }
-
-variable "rg2" {
-  type        = string
-  description = "Name of Lab resource group where key vault exists."
-}
