@@ -17,7 +17,7 @@ data "azurerm_user_assigned_identity" "monitor" {
     resource_group_name = "globalaz_serbia_mon"
 }
 
-resource "azurerm_role_assignment" "example" {
+resource "azurerm_role_assignment" "globalaz_role" {
     scope                = azurerm_resource_group.globalaz_serbia_rg.id
     role_definition_name = "Reader"
     principal_id         = data.azurerm_user_assigned_identity.monitor.principal_id
