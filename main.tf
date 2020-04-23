@@ -11,14 +11,6 @@ resource "azurerm_virtual_network" "globalaz_serbia_vnet" {
   address_space       = ["10.0.0.0/16"]
 }
 
-# # Configure Subnet
-# resource "azurerm_subnet" "globalaz_serbia_subnet" {
-#     name                 = "apps"
-#     resource_group_name  = azurerm_resource_group.globalaz_serbia_rg.name
-#     virtual_network_name = azurerm_virtual_network.globalaz_serbia_vnet.name
-#     address_prefix       = "10.0.1.0/24"
-# }
-
 # Give existing identity read permission to resource group
 data "azurerm_user_assigned_identity" "monitor" {
     name                = "monitor-api"
